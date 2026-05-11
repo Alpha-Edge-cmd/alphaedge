@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaEdge — Formation ICT/SMC Le Setup Parfait</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#0A0A0A;color:#F5F0E8;line-height:1.6;}
+:root{
+  --gold:#C9A84C;--gold-l:#E8C96A;--gold-d:#8A6820;
+  --black:#0A0A0A;--dark:#141414;--dark2:#1E1E1E;--dark3:#2A2A2A;
+  --white:#FFFFFF;--off:#F5F0E8;--grey:#888;--grey-l:#CCCCCC;
+  --green:#26A69A;--red:#EF5350;
+}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.97);border-bottom:1px solid var(--gold-d);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.logo{font-size:20px;font-weight:900;letter-spacing:3px;color:#fff;}.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:var(--grey-l);text-decoration:none;font-size:12px;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:#000!important;padding:8px 18px;border-radius:3px;font-size:12px;font-weight:800;letter-spacing:1px;text-decoration:none;}
+.nav-cta:hover{background:var(--gold-l);}
+.hero{padding:90px 40px 80px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.09) 0%,transparent 65%);position:relative;}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.badge{display:inline-block;background:var(--dark2);border:1px solid var(--gold-d);color:var(--gold);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:2px;margin-bottom:26px;}
+.hero h1{font-size:clamp(36px,5vw,66px);font-weight:900;line-height:1.08;letter-spacing:-1px;margin-bottom:18px;color:#fff;}
+.hero h1 span{color:var(--gold);}
+.hero-sub{font-size:17px;color:var(--grey-l);max-width:560px;margin:0 auto 36px;line-height:1.7;}
+.stats{display:flex;gap:36px;justify-content:center;margin-bottom:40px;flex-wrap:wrap;}
+.stat .n{font-size:30px;font-weight:900;color:var(--gold);display:block;}
+.stat .l{font-size:10px;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-g{background:var(--gold);color:#000;padding:14px 32px;border-radius:3px;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s;display:inline-block;}
+.btn-g:hover{background:var(--gold-l);}
+.btn-o{background:transparent;color:var(--off);padding:14px 32px;border-radius:3px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:1px solid var(--dark3);cursor:pointer;transition:border-color .2s,color .2s;display:inline-block;}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);}
+.sec{padding:72px 40px;}
+.sec-dark{background:var(--dark);}
+.sec-darker{background:var(--black);}
+.slabel{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;display:block;}
+.stitle{font-size:clamp(24px,3vw,38px);font-weight:800;color:#fff;margin-bottom:12px;line-height:1.15;}
+.stitle span{color:var(--gold);}
+.ssub{font-size:15px;color:var(--grey);max-width:500px;}
+.sh{margin-bottom:48px;}.sh.center{text-align:center;}.sh.center .ssub{margin:0 auto;}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;max-width:1100px;margin:0 auto;}
+.pcard{background:var(--dark2);border:1px solid var(--dark3);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .2s;position:relative;}
+.pcard:hover{border-color:var(--gold-d);transform:translateY(-3px);}
+.pcard.featured{border-color:var(--gold);box-shadow:0 0 40px rgba(201,168,76,0.1);}
+.cbadge{position:absolute;top:14px;right:14px;background:var(--gold);color:#000;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.ch{padding:24px 24px 18px;border-bottom:1px solid var(--dark3);}
+.cicon{width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid var(--gold-d);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px;}
+.ctype{font-size:9px;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+.ctitle{font-size:18px;font-weight:800;color:#fff;margin-bottom:7px;line-height:1.2;}
+.cdesc{font-size:12px;color:var(--grey);line-height:1.6;}
+.cb{padding:18px 24px;flex:1;}
+.flist{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.flist li{font-size:12px;color:var(--grey-l);display:flex;align-items:flex-start;gap:9px;}
+.flist li::before{content:'✓';color:var(--gold);font-weight:800;font-size:11px;flex-shrink:0;margin-top:1px;}
+.cf{padding:18px 24px 22px;border-top:1px solid var(--dark3);}
+.price-old{font-size:12px;color:var(--grey);text-decoration:line-through;margin-bottom:2px;}
+.price{font-size:34px;font-weight:900;color:#fff;line-height:1;}
+.price span{font-size:16px;font-weight:500;color:var(--grey);}
+.pnote{font-size:10px;color:var(--grey);margin-top:4px;margin-bottom:14px;}
+.btn-card{display:block;text-align:center;background:var(--gold);color:#000;padding:12px;border-radius:3px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .2s;border:none;cursor:pointer;width:100%;}
+.btn-card:hover{background:var(--gold-l);}
+.btn-card-o{display:block;text-align:center;background:transparent;color:var(--off);padding:12px;border-radius:3px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:1px solid var(--dark3);transition:border-color .2s,color .2s;cursor:pointer;width:100%;}
+.btn-card-o:hover{border-color:var(--gold);color:var(--gold);}
+.leak-bar{background:var(--dark3);border-top:1px solid #333;border-bottom:1px solid #333;padding:20px 40px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center;}
+.leak-bar span{font-size:12px;color:var(--grey-l);}
+.leak-bar strong{color:var(--gold);}
+.gbar{background:var(--dark2);border-top:1px solid var(--dark3);border-bottom:1px solid var(--dark3);padding:28px 40px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center;}
+.gbar h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:3px;}
+.gbar p{font-size:12px;color:var(--grey);}
+.acco-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;align-items:start;}
+.acco-features{display:flex;flex-direction:column;gap:16px;margin-top:28px;}
+.acco-feat{display:flex;gap:14px;align-items:flex-start;}
+.acco-icon{width:38px;height:38px;background:rgba(201,168,76,0.1);border:1px solid var(--gold-d);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.acco-feat h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;}
+.acco-feat p{font-size:12px;color:var(--grey);line-height:1.6;}
+.cal-card{background:var(--dark2);border:1px solid var(--gold);border-radius:6px;padding:28px;}
+.cal-title{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;}
+.cal-sub{font-size:12px;color:var(--grey);margin-bottom:22px;}
+.cal-month{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:16px;}
+.cal-day-name{font-size:9px;color:var(--grey);text-align:center;padding:4px 0;text-transform:uppercase;letter-spacing:1px;}
+.cal-day{font-size:11px;text-align:center;padding:7px 4px;border-radius:3px;color:var(--grey);}
+.cal-day.available{background:rgba(201,168,76,0.12);color:var(--gold);cursor:pointer;border:1px solid var(--gold-d);font-weight:700;}
+.cal-day.available:hover{background:rgba(201,168,76,0.25);}
+.cal-day.empty{opacity:0;}
+.cal-legend{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--grey);margin-bottom:20px;}
+.cal-dot{width:10px;height:10px;background:rgba(201,168,76,0.3);border:1px solid var(--gold-d);border-radius:2px;}
+.creneaux{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.creneau{display:flex;justify-content:space-between;align-items:center;background:var(--dark3);border:1px solid #333;border-radius:4px;padding:10px 14px;}
+.creneau-time{font-size:13px;color:#fff;font-weight:600;}
+.creneau-dispo{font-size:10px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.creneau-dispo.full{color:var(--red);}
+.btn-resa{display:block;width:100%;text-align:center;background:var(--gold);color:#000;padding:13px;border-radius:3px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;}
+.btn-resa:hover{background:var(--gold-l);}
+.price-acco{font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;}
+.price-acco span{font-size:14px;color:var(--grey);font-weight:500;}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;max-width:1100px;margin:0 auto;border:1px solid var(--dark3);border-radius:6px;overflow:hidden;}
+.mstep{background:var(--dark2);padding:28px 24px;}
+.mnum{font-size:44px;font-weight:900;color:var(--dark3);line-height:1;margin-bottom:10px;}
+.mstep h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;}
+.mstep p{font-size:12px;color:var(--grey);line-height:1.6;}
+.contenu-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start;}
+.partie-label{font-size:9px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.partie-label::after{content:'';flex:1;height:1px;background:var(--dark3);}
+.partie-block{margin-bottom:28px;}
+.chaps{display:flex;flex-direction:column;}
+.chap{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--grey-l);padding:8px 0;border-bottom:1px solid var(--dark3);}
+.chap-n{font-size:9px;color:var(--gold);font-weight:700;min-width:20px;}
+.specs-card{background:var(--dark2);border:1px solid var(--dark3);border-radius:6px;padding:28px;position:sticky;top:72px;}
+.specs-list{display:flex;flex-direction:column;margin-bottom:24px;}
+.spec{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--dark3);}
+.spec:last-child{border-bottom:none;}
+.sk{font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:1px;}
+.sv{font-size:12px;color:var(--off);font-weight:600;text-align:right;}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;max-width:1100px;margin:0 auto;}
+.tcard{background:var(--dark2);border:1px solid var(--dark3);border-radius:6px;padding:24px;}
+.tstars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px;}
+.ttext{font-size:13px;color:var(--grey-l);line-height:1.7;margin-bottom:16px;font-style:italic;}
+.tauthor{display:flex;align-items:center;gap:10px;}
+.tavatar{width:36px;height:36px;border-radius:50%;background:var(--gold-d);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#000;flex-shrink:0;}
+.tname{font-size:13px;font-weight:700;color:#fff;}
+.trole{font-size:10px;color:var(--grey);}
+.cta{background:var(--dark);padding:80px 40px;text-align:center;}
+.cta h2{font-size:clamp(26px,3.5vw,44px);font-weight:900;color:#fff;margin-bottom:14px;}
+.cta h2 span{color:var(--gold);}
+.cta p{font-size:15px;color:var(--grey);margin-bottom:36px;max-width:460px;margin-left:auto;margin-right:auto;}
+.cta-note{font-size:11px;color:var(--grey);margin-top:20px;}
+footer{background:#000;border-top:1px solid var(--dark3);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.flogo{font-size:16px;font-weight:900;letter-spacing:3px;color:#fff;}.flogo span{color:var(--gold);}
+.ftext{font-size:11px;color:var(--grey);}
+.flinks{display:flex;gap:18px;}
+.flinks a{font-size:11px;color:var(--grey);text-decoration:none;}
+.flinks a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ALPHA<span>EDGE</span></div>
+  <div class="nav-links">
+    <a href="#produits">Formation</a>
+    <a href="#accompagnement">Accompagnement</a>
+    <a href="#programme">Programme</a>
+    <a href="#temoignages">Témoignages</a>
+    <a href="https://jouglet5.gumroad.com/l/ysawa" class="nav-cta">Commencer →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="badge">Méthode ICT / SMC — Trading Institutionnel</span>
+  <h1>Apprends à trader<br>comme les <span>institutions</span></h1>
+  <p class="hero-sub">De zéro absolu à trader autonome. La méthode ICT/SMC expliquée simplement, appliquée concrètement — sans vidéo, sans blabla.</p>
+  <div class="stats">
+    <div class="stat"><span class="n">14</span><span class="l">Chapitres</span></div>
+    <div class="stat"><span class="n">60+</span><span class="l">Pages</span></div>
+    <div class="stat"><span class="n">18</span><span class="l">Graphiques réels</span></div>
+    <div class="stat"><span class="n">3</span><span class="l">Niveaux</span></div>
+  </div>
+  <div class="btns">
+    <a href="https://jouglet5.gumroad.com/l/ysawa" class="btn-g">Voir la formation — 47€</a>
+    <a href="#accompagnement" class="btn-o">Réserver un accompagnement</a>
+  </div>
+</div>
+
+<div id="produits" class="sec sec-dark">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="sh center">
+      <span class="slabel">Nos produits</span>
+      <h2 class="stitle">Choisis ton niveau de <span>progression</span></h2>
+    </div>
+    <div class="pgrid">
+      <div class="pcard">
+        <div class="ch">
+          <div class="cicon">📘</div>
+          <div class="ctype">E-Book PDF</div>
+          <div class="ctitle">Les Fondamentaux du Trading</div>
+          <div class="cdesc">Le point de départ idéal pour poser des bases solides avant d'aller plus loin.</div>
+        </div>
+        <div class="cb">
+          <ul class="flist">
+            <li>Comprendre les marchés financiers</li>
+            <li>Bougies japonaises & lecture de graphique</li>
+            <li>Les bases du risk management</li>
+            <li>Psychologie du trader débutant</li>
+            <li>Exemples concrets avec vrais chiffres</li>
+            <li>PDF téléchargeable immédiatement</li>
+          </ul>
+        </div>
+        <div class="cf">
+          <div class="price">27<span> €</span></div>
+          <div class="pnote">Accès immédiat · PDF téléchargeable</div>
+          <a href="https://jouglet5.gumroad.com/l/uvqrjn" class="btn-card-o">Obtenir l'e-book →</a>
+        </div>
+      </div>
+
+      <div class="pcard featured">
+        <span class="cbadge">⭐ POPULAIRE</span>
+        <div class="ch">
+          <div class="cicon">📊</div>
+          <div class="ctype">Formation Écrite — PDF</div>
+          <div class="ctitle">Le Setup Parfait ICT / SMC</div>
+          <div class="cdesc">La méthode complète pour lire les marchés comme une institution. 100% écrit, 0 vidéo.</div>
+        </div>
+        <div class="cb">
+          <ul class="flist">
+            <li>3 parties · 14 chapitres · 60+ pages</li>
+            <li>Structure de marché, OB, FVG, Wyckoff</li>
+            <li>18 graphiques TradingView réels annotés</li>
+            <li>Setup complet en 4 étapes séquentielles</li>
+            <li>Questions / Réponses à chaque chapitre</li>
+            <li>14 fiches récap à garder</li>
+            <li>Gestion du trade : SL, BE, Trailing Stop</li>
+            <li>100% écrit · Aucune vidéo · PDF immédiat</li>
+          </ul>
+        </div>
+        <div class="cf">
+          <div class="price">47<span> €</span></div>
+          <div class="pnote">Accès à vie · PDF téléchargeable</div>
+          <a href="https://jouglet5.gumroad.com/l/ysawa" class="btn-card">Accéder à la formation →</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <span class="cbadge" style="background:var(--dark3);color:var(--gold);border:1px solid var(--gold-d);">MEILLEURE VALEUR</span>
+        <div class="ch">
+          <div class="cicon">🎯</div>
+          <div class="ctype">Pack Complet</div>
+          <div class="ctitle">E-Book + Formation ICT/SMC</div>
+          <div class="cdesc">Le parcours complet des bases à la méthode avancée.</div>
+        </div>
+        <div class="cb">
+          <ul class="flist">
+            <li>E-Book "Les Fondamentaux" inclus</li>
+            <li>Formation ICT/SMC complète incluse</li>
+            <li>14 chapitres · 60+ pages · 18 graphiques</li>
+            <li>Questions / Réponses à chaque chapitre</li>
+            <li>Toutes les fiches récap incluses</li>
+            <li>Accès immédiat aux 2 PDF</li>
+            <li>Mises à jour incluses à vie</li>
+          </ul>
+        </div>
+        <div class="cf">
+          <div class="price-old">Séparément : 74€</div>
+          <div class="price">67<span> €</span></div>
+          <div class="pnote">Économie de 7€ · Accès à vie</div>
+          <a href="https://jouglet5.gumroad.com/l/uycmsu" class="btn-card">Obtenir le pack →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="leak-bar">
+  <span>🔒</span>
+  <span><strong>Protection du contenu :</strong> Chaque PDF est personnalisé avec le nom et l'email de l'acheteur. Toute diffusion non autorisée est identifiable et poursuivie. L'accès est révoqué en cas de demande de remboursement.</span>
+</div>
+
+<div class="gbar">
+  <span style="font-size:32px;">🛡️</span>
+  <div>
+    <h3>Satisfait ou remboursé — 14 jours</h3>
+    <p>Si tu n'es pas satisfait dans les 14 jours, on te rembourse intégralement. L'accès au PDF est révoqué à la demande de remboursement.</p>
+  </div>
+</div>
+
+<div id="accompagnement" class="sec sec-darker">
+  <div class="acco-grid">
+    <div>
+      <span class="slabel">Accompagnement</span>
+      <h2 class="stitle">Sessions<br><span>1-to-1 avec moi</span></h2>
+      <p class="ssub">Tu as lu la formation, tu veux aller plus loin. On analyse ensemble tes graphiques, ton setup, tes erreurs. En temps réel.</p>
+      <div class="acco-features">
+        <div class="acco-feat">
+          <div class="acco-icon">📞</div>
+          <div><h4>Sessions visio d'1 heure minimum</h4><p>On analyse ensemble ta lecture de graphique, tes zones, ton setup du moment. Correction en direct.</p></div>
+        </div>
+        <div class="acco-feat">
+          <div class="acco-icon">📈</div>
+          <div><h4>Analyse de tes trades passés</h4><p>Tu m'envoies tes captures d'écran, on identifie tes erreurs récurrentes et on les corrige.</p></div>
+        </div>
+        <div class="acco-feat">
+          <div class="acco-icon">🎯</div>
+          <div><h4>Plan d'action personnalisé</h4><p>À la fin de chaque session, tu repars avec des exercices précis adaptés à ton niveau.</p></div>
+        </div>
+        <div class="acco-feat">
+          <div class="acco-icon">💬</div>
+          <div><h4>Suivi entre les sessions</h4><p>Questions rapides par message entre les sessions pour ne pas rester bloqué.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="cal-card">
+      <div class="cal-title">📅 Mes disponibilités</div>
+      <div class="cal-sub">Sélectionne un créneau — Mai 2026</div>
+      <div class="cal-month">
+        <div class="cal-day-name">Lun</div><div class="cal-day-name">Mar</div><div class="cal-day-name">Mer</div>
+        <div class="cal-day-name">Jeu</div><div class="cal-day-name">Ven</div><div class="cal-day-name">Sam</div><div class="cal-day-name">Dim</div>
+        <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div>
+        <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div>
+        <div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day available">7</div>
+        <div class="cal-day">8</div><div class="cal-day available">9</div><div class="cal-day">10</div><div class="cal-day">11</div>
+        <div class="cal-day available">12</div><div class="cal-day">13</div><div class="cal-day available">14</div>
+        <div class="cal-day">15</div><div class="cal-day available">16</div><div class="cal-day">17</div><div class="cal-day">18</div>
+        <div class="cal-day">19</div><div class="cal-day available">20</div><div class="cal-day">21</div>
+        <div class="cal-day available">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div>
+        <div class="cal-day available">26</div><div class="cal-day">27</div><div class="cal-day available">28</div>
+        <div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day">31</div><div class="cal-day empty"></div>
+      </div>
+      <div class="cal-legend"><div class="cal-dot"></div><span>Créneau disponible</span></div>
+      <div style="font-size:11px;color:var(--grey);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;">Prochains créneaux</div>
+      <div class="creneaux">
+        <div class="creneau"><div><div class="creneau-time">Mer 7 Mai — 18h00</div><div style="font-size:10px;color:var(--grey);">1h · Visio</div></div><div class="creneau-dispo">Disponible</div></div>
+        <div class="creneau"><div><div class="creneau-time">Ven 9 Mai — 19h00</div><div style="font-size:10px;color:var(--grey);">1h · Visio</div></div><div class="creneau-dispo">Disponible</div></div>
+        <div class="creneau"><div><div class="creneau-time">Lun 12 Mai — 20h00</div><div style="font-size:10px;color:var(--grey);">1h · Visio</div></div><div class="creneau-dispo full">Complet</div></div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <div class="price-acco">50<span> €/heure</span></div>
+        <div style="font-size:10px;color:var(--grey);">Minimum 1 heure · Paiement sécurisé</div>
+      </div>
+      <a href="mailto:contact@alphaedge.fr" class="btn-resa">Réserver une session →</a>
+    </div>
+  </div>
+</div>
+
+<div class="sec sec-dark">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="sh">
+      <span class="slabel">La méthode</span>
+      <h2 class="stitle">Une progression <span>logique et structurée</span></h2>
+      <p class="ssub">Chaque partie prépare la suivante. Tu ne passes pas à l'étape suivante sans maîtriser la précédente.</p>
+    </div>
+    <div class="mgrid">
+      <div class="mstep"><div class="mnum">01</div><h4>Les Fondations</h4><p>Structure de marché, bougies, HH/HL, LH/LL, BOS, CHOCH, support, résistance, timeframes.</p></div>
+      <div class="mstep"><div class="mnum">02</div><h4>Zones Institutionnelles</h4><p>Order Blocks, Fair Value Gaps, liquidité, EQH/EQL, Inducement, OrderFlow, supply & demand.</p></div>
+      <div class="mstep"><div class="mnum">03</div><h4>Wyckoff Complet</h4><p>Accumulation et distribution, Spring, Upthrust, les 5 phases A→E avec graphiques réels annotés.</p></div>
+      <div class="mstep"><div class="mnum">04</div><h4>Le Setup Parfait</h4><p>Les 4 étapes : HTF → MTF → Wyckoff → Entrée LTF. Gestion SL, TP, BE, Trailing Stop.</p></div>
+    </div>
+  </div>
+</div>
+
+<div id="programme" class="sec sec-darker">
+  <div class="contenu-inner">
+    <div>
+      <div class="sh">
+        <span class="slabel">Programme</span>
+        <h2 class="stitle">Ce que tu vas <span>apprendre</span></h2>
+      </div>
+      <div class="partie-block">
+        <div class="partie-label">Partie 1 — Débutant</div>
+        <div class="chaps">
+          <div class="chap"><span class="chap-n">01</span>C'est quoi le trading ?</div>
+          <div class="chap"><span class="chap-n">02</span>Les termes de base (pip, lot, levier, SL, TP)</div>
+          <div class="chap"><span class="chap-n">03</span>Lire un graphique : les bougies japonaises</div>
+          <div class="chap"><span class="chap-n">04</span>La structure de marché (HH/HL · BOS · CHOCH)</div>
+        </div>
+      </div>
+      <div class="partie-block">
+        <div class="partie-label">Partie 2 — Intermédiaire</div>
+        <div class="chaps">
+          <div class="chap"><span class="chap-n">05</span>Les institutions et la liquidité</div>
+          <div class="chap"><span class="chap-n">06</span>Les Order Blocks : traces des institutions</div>
+          <div class="chap"><span class="chap-n">07</span>FVG · EQH/EQL · Inducement · OrderFlow</div>
+          <div class="chap"><span class="chap-n">08</span>Wyckoff : accumulation et distribution</div>
+        </div>
+      </div>
+      <div class="partie-block">
+        <div class="partie-label">Partie 3 — Avancé</div>
+        <div class="chaps">
+          <div class="chap"><span class="chap-n">09</span>Le Setup Parfait ICT/SMC en 4 étapes</div>
+          <div class="chap"><span class="chap-n">10</span>Gestion du trade : SL · TP · BE · Trailing</div>
+          <div class="chap"><span class="chap-n">11</span>Risk management (le chapitre le plus important)</div>
+          <div class="chap"><span class="chap-n">12</span>Psychologie du trader</div>
+          <div class="chap"><span class="chap-n">13</span>Les prop firms</div>
+          <div class="chap"><span class="chap-n">14</span>Feuille de route : de zéro à trader autonome</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="specs-card">
+        <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;">Formation ICT / SMC</div>
+        <div class="specs-list">
+          <div class="spec"><span class="sk">Format</span><span class="sv">Écrit — 100% PDF</span></div>
+          <div class="spec"><span class="sk">Vidéo</span><span class="sv">Aucune</span></div>
+          <div class="spec"><span class="sk">Pages</span><span class="sv">60+ pages</span></div>
+          <div class="spec"><span class="sk">Parties</span><span class="sv">3 niveaux progressifs</span></div>
+          <div class="spec"><span class="sk">Chapitres</span><span class="sv">14 chapitres</span></div>
+          <div class="spec"><span class="sk">Graphiques</span><span class="sv">18 graphiques TradingView</span></div>
+          <div class="spec"><span class="sk">Exercices</span><span class="sv">Q&R à chaque chapitre</span></div>
+          <div class="spec"><span class="sk">Fiches récap</span><span class="sv">14 fiches incluses</span></div>
+          <div class="spec"><span class="sk">Niveau requis</span><span class="sv">Zéro absolu</span></div>
+          <div class="spec"><span class="sk">Accès</span><span class="sv">Immédiat · À vie</span></div>
+        </div>
+        <div style="border-top:1px solid var(--dark3);padding-top:18px;margin-bottom:16px;">
+          <div style="font-size:12px;color:var(--grey);margin-bottom:4px;">Prix</div>
+          <div style="font-size:38px;font-weight:900;color:#fff;line-height:1;">47<span style="font-size:18px;font-weight:500;color:var(--grey);"> €</span></div>
+          <div style="font-size:10px;color:var(--grey);margin-top:4px;">Accès à vie · Garantie 14 jours</div>
+        </div>
+        <a href="https://jouglet5.gumroad.com/l/ysawa" class="btn-card" style="margin-bottom:10px;">Accéder maintenant →</a>
+        <div style="text-align:center;font-size:10px;color:var(--grey);margin-top:8px;">🛡️ Satisfait ou remboursé 14 jours</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="temoignages" class="sec sec-dark">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="sh center">
+      <span class="slabel">Témoignages</span>
+      <h2 class="stitle">Ce qu'ils en disent</h2>
+    </div>
+    <div class="tgrid">
+      <div class="tcard">
+        <div class="tstars">★★★★★</div>
+        <div class="ttext">"Enfin une formation qui explique vraiment. Les analogies du quotidien m'ont tout de suite parlé. Le chapitre sur le Wyckoff est exceptionnel. J'ai compris en 2 heures ce que je n'avais pas compris en 6 mois sur YouTube."</div>
+        <div class="tauthor"><div class="tavatar">TM</div><div><div class="tname">Thomas M.</div><div class="trole">Débutant complet · Paris</div></div></div>
+      </div>
+      <div class="tcard">
+        <div class="tstars">★★★★★</div>
+        <div class="ttext">"Les 18 graphiques TradingView réels annotés, c'est exactement ce dont j'avais besoin. On voit vraiment où regarder sur un vrai graphique. Les fiches récap sont parfaites pour réviser avant de trader."</div>
+        <div class="tauthor"><div class="tavatar">KL</div><div><div class="tname">Kévin L.</div><div class="trole">Étudiant · Lyon</div></div></div>
+      </div>
+      <div class="tcard">
+        <div class="tstars">★★★★★</div>
+        <div class="ttext">"La session d'accompagnement a tout changé. En 1 heure on a identifié mes 3 erreurs principales. Le suivi entre les sessions par message est un vrai plus. Je progresse beaucoup plus vite qu'en autodidacte."</div>
+        <div class="tauthor"><div class="tavatar">SB</div><div><div class="tname">Sarah B.</div><div class="trole">Comptable · Bordeaux</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>Prêt à trader comme<br>une <span>institution</span> ?</h2>
+  <p>60+ pages. 14 chapitres. 18 graphiques réels. Q&R. Fiches récap. Aucune vidéo. Téléchargement immédiat.</p>
+  <div class="btns" style="margin-bottom:14px;">
+    <a href="https://jouglet5.gumroad.com/l/ysawa" class="btn-g">Formation ICT/SMC — 47€</a>
+    <a href="https://jouglet5.gumroad.com/l/uycmsu" class="btn-g" style="background:var(--dark2);color:var(--gold);border:1px solid var(--gold-d);">Pack E-Book + Formation — 67€</a>
+  </div>
+  <div class="btns">
+    <a href="mailto:contact@alphaedge.fr" class="btn-o">Réserver un accompagnement — 50€/h</a>
+  </div>
+  <div class="cta-note" style="margin-top:20px;">🛡️ Garantie 14 jours · Accès à vie · PDF immédiat · Accès révoqué en cas de remboursement</div>
+</div>
+
+<footer>
+  <div class="flogo">ALPHA<span>EDGE</span></div>
+  <div class="ftext">© 2025 AlphaEdge — Le trading est une activité risquée. Les performances passées ne garantissent pas les résultats futurs.</div>
+  <div class="flinks">
+    <a href="#">Mentions légales</a>
+    <a href="#">CGV</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
